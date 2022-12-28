@@ -12,7 +12,7 @@ function Pagination({ goPrev, goNext, currentPage, totalItems, itemsPerPage }) {
       onClick={goPrev}
       disabled={isPrevPageAvailable}
     >
-      {!isPrevPageAvailable && '←'}
+      {!isPrevPageAvailable ? '←' : ''}
     </button>
     <span className="pagination__page">{currentPage + 1}</span>
     <button
@@ -20,7 +20,7 @@ function Pagination({ goPrev, goNext, currentPage, totalItems, itemsPerPage }) {
       onClick={goNext}
       disabled={isNextPageAvailable}
     >
-      {!isNextPageAvailable && '→'}
+      {!isNextPageAvailable ? '→' : ''}
     </button>
   </div>
   );
