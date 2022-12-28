@@ -7,7 +7,7 @@ import { nextPage, prevPage } from "./users.actions";
 const UsersList = ({ currentPage, users, goNext, goPrev }) => {
   const itemsPerPage = 3;
   const fromUser = currentPage * itemsPerPage;
-  const toUser = (currentPage + 1) * itemsPerPage;
+  const toUser = fromUser + itemsPerPage;
   const copyUsers = users.slice(fromUser, toUser);
   const totalItems = users.length;
   
