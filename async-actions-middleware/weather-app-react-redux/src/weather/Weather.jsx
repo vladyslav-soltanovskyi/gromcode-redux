@@ -1,7 +1,7 @@
 import React from "react";
 import propTypes from "prop-types";
 import { connect } from "react-redux";
-import { fetchWeatherCities } from "./weather.actions";
+import { getWeatherData } from "./weather.actions";
 import { isFetchingSelector, weatherCitiesSelector } from "./weather.selectors";
 import Spinner from "./Spinner";
 
@@ -39,9 +39,9 @@ const mapState = (state) => ({
   isFetching: isFetchingSelector(state),
   weatherCities: weatherCitiesSelector(state)
 });
-
+fetchWeatherCities
 const mapDispatch = {
-  fetchWeatherCities
+  fetchWeatherCities: getWeatherData
 }
 
 export default connect(mapState, mapDispatch)(Weather);
