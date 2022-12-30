@@ -39,7 +39,7 @@ const mapState = (state) => ({
   isFetching: isFetchingSelector(state),
   weatherCities: weatherCitiesSelector(state)
 });
-fetchWeatherCities
+
 const mapDispatch = {
   fetchWeatherCities: getWeatherData
 }
