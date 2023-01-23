@@ -7,17 +7,17 @@ TaskItem.propTypes = {
   text: PropTypes.string,
   done: PropTypes.bool,
   onDelete: PropTypes.func,
-  onToggleStatus: PropTypes.func,
+  onChange: PropTypes.func,
 }
 
-function TaskItem ({ id, text, done, onDelete, onToggleStatus }) {
+function TaskItem ({ id, text, done, onDelete, onChange }) {
   return (
     <li className={cn("list-item", { "list-item_done": done })}>
       <input
         type="checkbox"
         className="list-item__checkbox"
         checked={done}
-        onChange={() => onToggleStatus(id)}
+        onChange={() => onChange(id)}
       />
       {text}
       <button

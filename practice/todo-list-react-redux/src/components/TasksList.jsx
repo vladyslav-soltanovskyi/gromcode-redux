@@ -14,8 +14,6 @@ class TasksList extends React.Component {
 
   componentDidMount() {
     this.props.getTasksList();
-    
-    console.log(this.props)
   }
 
   render() {
