@@ -1,7 +1,6 @@
 import React from "react";
 import CreateTask from "./CreateTask";
 import TaskItem from "./TaskItem";
-import api from "../api";
 import { connect } from 'react-redux';
 import { isFetchingSelector, sortedTaskSelector } from '../tasks/tasks.selectors';
 import * as taskAction from '../tasks/tasks.actions';
@@ -14,40 +13,9 @@ class TasksList extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchTasks();
-  }
-  
-  fetchTasks = () => {
-    api.getTasks()
-      .then(tasks => {
-        this.setState({ tasks });
-      });
-  }
-
-  handleDeleteTask = (taskId) => {
-    api.deleteTask(taskId)
-      .then(() => {
-        const filteredTasks = this.state.tasks.filter(task => task.id !== taskId);
-        this.setState({ tasks: filteredTasks });
-      });
-  }
-
-  handleCreateTask = (text) => {
-    return api.createTask({ text, done: false })
-      .then(task => {
-        this.setState((state) => ({ tasks: [...state.tasks, task] }));
-      });
-  }
-
-  handleToggleStatusTask = (taskId) => {
-    const { tasks } = this.state;
-    const currentStatus = tasks.find(task => task.id === taskId);
-
-    api.updateTask(taskId, { done: !currentStatus.done })
-      .then(updatedTask => {
-        const updatedTasks = tasks.map(task => task.id === taskId ? updatedTask : task);
-        this.setState({ tasks: updatedTasks });
-      });
+    this.props.getTasksList();
+    
+    console.log(this.props)
   }
 
   render() {

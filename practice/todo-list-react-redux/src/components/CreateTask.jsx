@@ -11,10 +11,9 @@ class CreateTask extends React.Component {
   handleCreateTask = () => {
     const { text } = this.state;
     
-    this.props.onCreateTask(text)
-      .then(() => {
-        this.setState({ text: '' });
-      });
+    this.props.onCreateTask(text);
+    
+    this.setState({ text: '' });
   }
 
   render() {

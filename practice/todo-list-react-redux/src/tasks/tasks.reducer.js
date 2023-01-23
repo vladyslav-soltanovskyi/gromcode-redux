@@ -7,17 +7,19 @@ const initialState = {
 
 const tasksReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SHOW_SPINNER:
+    case SHOW_SPINNER: {
       return {
         ...state,
         isFetching: true,
       };
-    case TASKS_LIST_RECIEVED:
+    }
+    case TASKS_LIST_RECIEVED: {
       return {
         ...state,
-        tasksList: action.payload.tasksList,
+        tasksList: action.payload.taskList,
         isFetching: false,
       };
+    }
     default:
       return state;
   }
