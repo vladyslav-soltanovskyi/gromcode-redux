@@ -11,7 +11,7 @@ class CreateTask extends React.Component {
   handleCreateTask = () => {
     const { text } = this.state;
     
-    this.props.onCreateTask(text);
+    this.props.onCreate(text);
     
     this.setState({ text: '' });
   }
@@ -38,7 +38,7 @@ class CreateTask extends React.Component {
 }
 
 CreateTask.propTypes = {
-  onCreateTask: PropTypes.func
+  onCreate: PropTypes.func
 }
 
 export default CreateTask;

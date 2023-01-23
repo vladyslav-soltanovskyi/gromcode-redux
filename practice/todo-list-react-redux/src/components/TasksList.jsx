@@ -19,7 +19,7 @@ class TasksList extends React.Component {
   render() {
     return (
       <main className="todo-list">
-        <CreateTask onCreateTask={this.props.createTask} />
+        <CreateTask onCreate={this.props.createTask} />
         <ul className="list">
         {this.props.isFetching && <Spinner />}
           {this.props.tasks.map(task => (
